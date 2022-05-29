@@ -14,11 +14,10 @@ public class CoinSpin extends Application
     @Override
     public void start(Stage theStage)
     {
-        theStage.setTitle("Coin Spin");
-
         Group root = new Group();
         Scene theScene = new Scene(root);
         theStage.setScene(theScene);
+        theStage.setTitle("Coin Spin");
 
         Canvas canvas = new Canvas(512,512);
         root.getChildren().add(canvas);
@@ -39,12 +38,13 @@ public class CoinSpin extends Application
 
         final long startNanoTime = System.nanoTime();
 
-        new AnimationTimer(){
-            public void handle(long currentNanoTime){
+        new AnimationTimer()
+        {
+            public void handle(long currentNanoTime)
+            {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
                 gc.drawImage(space, 0,0);
-
                 gc.drawImage(coin.getFrame(t), 125,125);
             }
         }.start();
